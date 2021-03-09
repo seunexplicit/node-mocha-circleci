@@ -19,7 +19,7 @@ jobs:
       - image: cimg/node:15.1
       - image: nginx
 
-    working_directory: /xplicit/src/node-circle-ci
+    working_directory: ~/node-circle-ci
     # Then run your tests!
     # CircleCI will report the results back to your VCS provider.
     steps:
