@@ -20,8 +20,7 @@ jobs:
         auth:
           username: seunxplicit
           password: $DOCKER_PASSWORD
-        environment: 
-          DOCKER_HOST: localhost:8080
+          
       - image: nginx
 
     working_directory: ~/node-circle-ci
@@ -36,6 +35,10 @@ jobs:
       # If you are using yarn instead npm, remove the line above and uncomment the two lines below.
       # - node/install-packages:
       #     pkg-manager: yarn
+      - setup_remote_docker:
+          version: 20.10.2
+          docker_layer_caching: true
+
       - run:
           name: Install Docker client
           command: |
