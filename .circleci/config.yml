@@ -20,7 +20,8 @@ jobs:
         auth:
           username: seunxplicit
           password: $DOCKER_PASSWORD
-      - image: docker
+        environment: 
+          DOCKER_HOST: localhost:8080
       - image: nginx
 
     working_directory: ~/node-circle-ci
