@@ -16,8 +16,10 @@ jobs:
     # You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # A list of available CircleCI docker Convenience Images are available here: https://circleci.com/developer/images/image/cimg/node
     docker:
-      - image: docker:20.10.2-git
       - image: cimg/node:15.1
+        auth:
+          username: seunxplicit
+          password: $DOCKER_PASSWORD
       - image: nginx
 
     working_directory: ~/node-circle-ci
@@ -37,7 +39,7 @@ jobs:
           command: |
             set -x
             npm install docker-compose
-            
+
       - run:
           name: Start container and verify it's working
           command: |
