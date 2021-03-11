@@ -48,8 +48,8 @@ jobs:
       - run:
           name: copy nginx file
           command: |
-            mkdir /etc/nginx/conf.d
-            sudo cp ./nginx.conf /etc/nginx/conf.d/
+            mkdir /tmp/nginx
+            sudo cp ./nginx.conf /tmp/nginx/nginx.conf
 
 
      # - run:
