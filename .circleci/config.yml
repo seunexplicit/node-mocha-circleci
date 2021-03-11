@@ -45,25 +45,21 @@ jobs:
           name: List files in nginx
           command: ls -al ./
 
-      - run:
-          name: Update apt-get
-          command: sudo apt-get update
+     # - run:
+     #     name: Update apt-get
+     #     command: sudo apt-get update
 
-      - run:
-          name: Install nginx
-          command: sudo apt-get install nginx
+      #- run:
+      #    name: Install nginx
+      #    command: sudo apt-get install nginx
 
-      - run:
-          name: Make test results working_directory
-          command: mkdir /tmp/test-results
+      #- run:
+      #    name: Make test results working_directory
+      #    command: mkdir /tmp/test-results
 
-      - run:
-          name: Copy nginx configuration file
-          command: sudo cp ./nginx.conf /etc/nginx/conf.d/default.conf
-
-      - run:
-          name: Start nginx
-          command: sudo /etc/init.d/nginx start
+      #- run:
+      #    name: Copy nginx configuration file
+      #    command: docker cp ./nginx.conf /etc/nginx/conf.d/default.conf
 
       - run:
           name: Start container and verify it's working
