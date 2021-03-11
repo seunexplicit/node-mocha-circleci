@@ -49,7 +49,7 @@ jobs:
           name: copy nginx file
           command: |
             mkdir /tmp/nginx
-            sudo cp ./nginx.conf /tmp/nginx/nginx.conf
+            sudo cp ./nginx.conf /tmp/nginx/default.conf
 
 
      # - run:
