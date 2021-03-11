@@ -45,6 +45,13 @@ jobs:
           name: List files in nginx
           command: ls -al ./
 
+      - run:
+          name: copy nginx file
+          command: |
+            mkdir /etc/nginx/conf.d
+            sudo cp ./nginx.conf /etc/nginx/conf.d/
+
+
      # - run:
      #     name: Update apt-get
      #     command: sudo apt-get update
