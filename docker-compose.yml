@@ -35,4 +35,5 @@ services:
       - "7070:7070"
     volumes:
       - ./web/public:/srv/static/www
-      - ./tmp/nginx/default.conf:/etc/nginx/conf.d
+      - ./nginx.conf:/etc/nginx/conf.d
+      #- ./tmp/nginx/default.conf:/etc/nginx/conf.d
