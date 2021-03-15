@@ -2,10 +2,12 @@ FROM node:latest
 
 WORKDIR /src
 
-COPY . .
+COPY package.json ./
 
 RUN npm install
 
+COPY . .
+
 EXPOSE 3000
 
-CMD ["npm", "run", "test"]
+CMD ["npm", "run"]

@@ -1,10 +1,12 @@
 FROM node:latest
 
-WORKDIR /src
+WORKDIR /src/fibonacci
 
-COPY . .
+COPY package.json ./
 
 RUN npm install
+
+COPY . .
 
 EXPOSE 3001
 

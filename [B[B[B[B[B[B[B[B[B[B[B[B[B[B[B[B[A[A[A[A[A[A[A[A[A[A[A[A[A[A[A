@@ -1,0 +1,53 @@
+[1mdiff --git a/.circleci/config.yml b/.circleci/config.yml[m
+[1mindex 03be9a0..a3e9afa 100644[m
+[1m--- a/.circleci/config.yml[m
+[1m+++ b/.circleci/config.yml[m
+[36m@@ -77,7 +77,7 @@[m [mjobs:[m
+             [m
+ [m
+       - store_test_results:[m
+[31m-          path: /tmp/test-results[m
+[32m+[m[32m          path: test-results[m
+ [m
+ [m
+ workflows:[m
+[1mdiff --git a/docker-compose.yml b/docker-compose.yml[m
+[1mindex 6dada47..684a678 100644[m
+[1m--- a/docker-compose.yml[m
+[1m+++ b/docker-compose.yml[m
+[36m@@ -35,4 +35,5 @@[m [mservices:[m
+       - "7070:7070"[m
+     volumes:[m
+       - ./web/public:/srv/static/www[m
+[31m-      - ./tmp/nginx/default.conf:/etc/nginx/conf.d[m
+\ No newline at end of file[m
+[32m+[m[32m      - ./nginx.conf:/etc/nginx/conf.d[m
+[32m+[m[32m      #- ./tmp/nginx/default.conf:/etc/nginx/conf.d[m
+\ No newline at end of file[m
+[1mdiff --git a/fibonacci/routes/index.js b/fibonacci/routes/index.js[m
+[1mindex ecca96a..d43381f 100644[m
+[1m--- a/fibonacci/routes/index.js[m
+[1m+++ b/fibonacci/routes/index.js[m
+[36m@@ -1,9 +1,21 @@[m
+ var express = require('express');[m
+ var router = express.Router();[m
+[32m+[m[32mconst fib = require('../module/fib');[m
+[32m+[m[32mconst fibSequence = require('../module/fibSequence');[m
+ [m
+ /* GET home page. */[m
+ router.get('/', function(req, res, next) {[m
+[31m-  res.render('index', { title: 'Express' });[m
+[32m+[m[32m  res.status(401).send('requires a value');[m
+ });[m
+ [m
+[32m+[m[32mrouter.get('/:len', function(req, res){[m
+[32m+[m	[32mlet fibValue = fib.fib(req.params.len);[m
+[32m+[m	[32mres.status(200).send(fibValue);[m[41m [m
+[32m+[m[32m});[m
+[32m+[m
+[32m+[m[32mrouter.sequence('/sequence/:seq', function(req, res){[m
+[32m+[m	[32mlet sequence = fibSequence(req.params.seq);[m
+[32m+[m	[32mres.status(200).send(sequence);[m
+[32m+[m[32m})[m
+[32m+[m
+ module.exports = router;[m

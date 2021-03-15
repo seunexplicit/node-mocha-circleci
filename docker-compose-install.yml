@@ -1,0 +1,30 @@
+version: "3.3"
+services:
+  fibonacci:
+    image: node:latest
+    volumes: 
+      - ./fibonacci:/src/fibonacci
+    working_dir: /src/fibonacci
+    command: npm i
+    container_name: fibonacci
+  sorter:
+    image: node:latest
+    volumes: 
+      - ./number_sorter:/src/sorter
+    working_dir: /src/sorter
+    command: npm i
+    container_name: sorter
+  prime:
+    image: node:latest
+    volumes: 
+      - ./prime_number:/src/prime
+    working_dir: /src/prime
+    command: npm i
+    container_name: prime
+  web:
+    image: node:latest
+    volumes: 
+      - ./web:/src/web
+    working_dir: /src/web
+    command: npm i
+    container_name: web
